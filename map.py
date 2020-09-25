@@ -18,17 +18,22 @@ def readData():
 if __name__ == "__main__":
     df = readData()
     
-    for i in range(14124):
+    
+    for i in range(len(df)):
         try:
-            df["Xlongitude"][i] = float(df["Xlongitude"][i])
-            df["Ylatitude"][i] = float(df["Ylatitude"][i])
-        except:
+            #df.ix[i, "Xlongitude"] = float(df.ix[i, "Xlongitude"])
+            df["Xlongitude", i] = float(df["Xlongitude"][i])
+            df["Ylatitude", i] = float(df["Ylatitude"][i])
+            print(i)
+        except ValueError:
+            print("An error occured!");
             l = json.loads(
                     requests.get(
                         "https://api-adresse.data.gouv.fr/search/?q=" + 
                         urllib.parse.quote(df["ad_station"][i])
                     ).content.decode('unicode_escape')
                 )["features"]
+                
             
             if (len(l) == 0):
                 print("An error occured!");
