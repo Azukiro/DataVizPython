@@ -25,7 +25,7 @@ def createDict(data, keys, values):
             for val in values
         } 
         for i in range(len(data)) 
-    };
+    }
 
 
 
@@ -33,25 +33,16 @@ def createDict(data, keys, values):
 
 
 if __name__ == '__main__':
-	app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+    app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-# assume you have a "long-form" data frame
-# see https://plotly.com/python/px-arguments/ for more options
-	df = pd.read_csv(CSV_DATA_PATH, sep=';', low_memory=False, encoding="UTF-8", usecols=CSV_DATA_HEADERS)
+    # assume you have a "long-form" data frame
+    # see https://plotly.com/python/px-arguments/ for more options
+    df = pd.read_csv(CSV_DATA_PATH, sep=';', low_memory=False, encoding="UTF-8", usecols=CSV_DATA_HEADERS)
 
-	fig = fig = px.histogram(df, x="puiss_max",  nbins=1000)
+    fig = px.histogram(df, x="puiss_max",  nbins=1000)
 
-	app.layout = html.Div(children=[
-    html.H1(children='Hello Dash'),
+    app.layout = html.Div(children=[html.H1(children='Hello Dash'), html.Div(children='''Dash: A web application framework for Python.'''),
 
-    html.Div(children='''
-        Dash: A web application framework for Python.
-    '''),
-
-    dcc.Graph(
-        id='example-graph',
-        figure=fig
-    )
-	])
+    dcc.Graph(id='example-graph',        figure=fig    )	])
     app.run_server(debug=True)
 
