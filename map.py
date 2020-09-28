@@ -3,6 +3,7 @@ import plotly
 import plotly.express as px
 import pandas as pd
 import math
+import re
 from consts import *
 import requests, json
 import urllib.parse
@@ -24,7 +25,17 @@ if __name__ == "__main__":
         pd.to_numeric, errors='coerce'
     )
     """
-    df["price"] = [ (1 if ("payant" in str(stringPrice).lower()) else 0) for stringPrice in df['acces_recharge']]
+    # df["price"] = [ (1 if ("payant" in str(stringPrice).lower()) else 0) for stringPrice in df['acces_recharge']]
+
+    l = []
+    for stringPuiss in df['puiss_max']: 
+        intList = re.findall("[+-]?\d+", stringPuiss)
+        if (len(intList) == 0):
+            l.append(0)
+        else:
+            l.append(intList[0])
+    df["formatted_puiss"] = l
+    
 
     df['Xlongitude'] = pd.to_numeric(df["Xlongitude"], errors="coerce")
     df['Ylatitude'] = pd.to_numeric(df["Ylatitude"], errors="coerce")
@@ -49,30 +60,25 @@ if __name__ == "__main__":
         if (math.isnan(df['nbre_pdc'][i])):
             df['nbre_pdc'][i] = 0
 
+    df['size'] = [nb+1 for nb in df['nbre_pdc']]
+    
     fig = px.scatter_mapbox(
         df, 
         lat = "Ylatitude", 
         lon = "Xlongitude", 
-        hover_name = "ad_station", 
-        hover_data = [
-            "acces_recharge", 
-            "type_prise"
-        ],
-        color="price",
-        color_continuous_scale=["blue", "green"],
-        range_color=[0, 1],
-        size="nbre_pdc",
+        labels={
+            "formatted_puiss" : "Puissance :",
+            "size" : "Nombre prise :",
+        },
+        color="formatted_puiss",
+        color_continuous_scale=px.colors.qualitative.Plotly,
+        #color_continuous_scale=["blue", "green"],
+        #range_color=[0, 1],
+        size="size",
         zoom = 7
     )
     
     fig.update_layout(mapbox_style = "open-street-map")
-
-    fig.update_layout(margin = {
-        "r": 0,
-        "t": 0,
-        "l": 0,
-        "b": 0
-    })
 
     """
     for i in range(len(STATIONS)):
