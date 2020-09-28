@@ -20,11 +20,6 @@ def readData():
 if __name__ == "__main__":
     df = readData()
     
-    """
-    df[['Xlongitude', 'Ylatitude']].apply(
-        pd.to_numeric, errors='coerce'
-    )
-    """
     # df["price"] = [ (1 if ("payant" in str(stringPrice).lower()) else 0) for stringPrice in df['acces_recharge']]
 
     l = []
@@ -41,8 +36,6 @@ if __name__ == "__main__":
     df['Ylatitude'] = pd.to_numeric(df["Ylatitude"], errors="coerce")
 
     for i in range(len(df)):
-        
-        
         if (math.isnan(df['Xlongitude'][i]) or math.isnan(df['Ylatitude'][i])):
             l = json.loads(
                     requests.get(
@@ -66,9 +59,16 @@ if __name__ == "__main__":
         df, 
         lat = "Ylatitude", 
         lon = "Xlongitude", 
+        hover_name="ad_station",
+        hover_data={
+            "nbre_pdc" : True,
+            "size" : False,
+            "Ylatitude" : False,
+            "Xlongitude" : False
+        },
         labels={
-            "formatted_puiss" : "Puissance :",
-            "size" : "Nombre prise :",
+            "formatted_puiss" : "Puissance",
+            "nbre_pdc" : "Nombre de prises",
         },
         color="formatted_puiss",
         color_continuous_scale=px.colors.qualitative.Plotly,
