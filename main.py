@@ -6,6 +6,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
 from collections import Counter
+import urllib.request
+
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
@@ -82,21 +84,25 @@ if __name__ == '__main__':
 
     # Open the main dataframe from our ressource file
     df = readData()
-    fig = createHistogram(df)
-    fig2 = createPieChart(df)
+    hist = createHistogram(df)
+    pie = createPieChart(df)
+    map = createMap(df)
+    urllib.request.urlretrieve('https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6b8c24bdabb3', "assets/data.csv")
 
     #Contruct Html Page
     app.layout = html.Div(
         children=[
             html.H1(children='Statistique borne électrique'), 
             html.Div(children='''Graphiques'''),
-            dcc.Graph(id='tot', figure=fig),
-            dcc.Graph(id='example-graph',figure=fig2)	
+            dcc.Graph(id='tot', figure=hist),
+            dcc.Graph(id='example-graph',figure=pie)	
         ])
-
+     
     #Run server
     app.run_server(debug=True)
 
 
+
+    df['size']= [(nb+1)*0.1 for nb in df['nbre_pdc']]
     
 
