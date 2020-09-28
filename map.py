@@ -24,6 +24,7 @@ if __name__ == "__main__":
         pd.to_numeric, errors='coerce'
     )
     """
+    df["price"] = [ (1 if ("payant" in str(stringPrice).lower()) else 0) for stringPrice in df['acces_recharge']]
 
     df['Xlongitude'] = pd.to_numeric(df["Xlongitude"], errors="coerce")
     df['Ylatitude'] = pd.to_numeric(df["Ylatitude"], errors="coerce")
@@ -57,8 +58,9 @@ if __name__ == "__main__":
             "acces_recharge", 
             "type_prise"
         ],
-        color="Xlongitude",
-        color_continuous_scale=px.colors.cyclical.IceFire,
+        color="price",
+        color_continuous_scale=["blue", "green"],
+        range_color=[0, 1],
         size="nbre_pdc",
         zoom = 7
     )
