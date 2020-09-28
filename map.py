@@ -18,15 +18,16 @@ def readData():
 if __name__ == "__main__":
     df = readData()
     
-    
+    # df[['Xlongitude', 'Ylatitude']].apply(pd.to_numeric)
+
     for i in range(len(df)):
         try:
-            #df.ix[i, "Xlongitude"] = float(df.ix[i, "Xlongitude"])
-            df["Xlongitude", i] = float(df["Xlongitude"][i])
-            df["Ylatitude", i] = float(df["Ylatitude"][i])
-            print(i)
+            #print(i)
+            #df.loc[:, ('Xlongitude', i)] = float(df.loc[:, ('Xlongitude', i)])
+            #df.loc[:, ('Ylatitude', i)] = float(df.loc[:, ('Ylatitude', i)])
+            df["Xlongitude"][i] = float(df["Xlongitude"][i])
+            df["Ylatitude"][i] = float(df["Ylatitude"][i])
         except ValueError:
-            print("An error occured!");
             l = json.loads(
                     requests.get(
                         "https://api-adresse.data.gouv.fr/search/?q=" + 
@@ -34,12 +35,10 @@ if __name__ == "__main__":
                     ).content.decode('unicode_escape')
                 )["features"]
                 
-            
             if (len(l) == 0):
-                print("An error occured!");
+                df.drop([i])
             else:
-                pass
-                #df["Xlongitude"][i], df["Ylatitude"][i] = l[0]["geometry"]["coordinates"]
+                df["Xlongitude"][i], df["Ylatitude"][i] = l[0]["geometry"]["coordinates"]
 
     """
     fig = px.scatter_mapbox(
