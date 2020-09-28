@@ -2,6 +2,7 @@ import sys
 import plotly
 import plotly.express as px
 import pandas as pd
+import math
 from consts import *
 import requests, json
 import urllib.parse
@@ -18,16 +19,19 @@ def readData():
 if __name__ == "__main__":
     df = readData()
     
-    # df[['Xlongitude', 'Ylatitude']].apply(pd.to_numeric)
+    """
+    df[['Xlongitude', 'Ylatitude']].apply(
+        pd.to_numeric, errors='coerce'
+    )
+    """
+
+    df['Xlongitude'] = pd.to_numeric(df["Xlongitude"], errors="coerce")
+    df['Ylatitude'] = pd.to_numeric(df["Ylatitude"], errors="coerce")
 
     for i in range(len(df)):
-        try:
-            #print(i)
-            #df.loc[:, ('Xlongitude', i)] = float(df.loc[:, ('Xlongitude', i)])
-            #df.loc[:, ('Ylatitude', i)] = float(df.loc[:, ('Ylatitude', i)])
-            df["Xlongitude"][i] = float(df["Xlongitude"][i])
-            df["Ylatitude"][i] = float(df["Ylatitude"][i])
-        except ValueError:
+        
+        
+        if (math.isnan(df['Xlongitude'][i]) or math.isnan(df['Ylatitude'][i])):
             l = json.loads(
                     requests.get(
                         "https://api-adresse.data.gouv.fr/search/?q=" + 
@@ -40,7 +44,10 @@ if __name__ == "__main__":
             else:
                 df["Xlongitude"][i], df["Ylatitude"][i] = l[0]["geometry"]["coordinates"]
 
-    """
+
+        if (math.isnan(df['nbre_pdc'][i])):
+            df['nbre_pdc'][i] = 0
+
     fig = px.scatter_mapbox(
         df, 
         lat = "Ylatitude", 
@@ -50,11 +57,12 @@ if __name__ == "__main__":
             "acces_recharge", 
             "type_prise"
         ],
-        color_discrete_sequence = [
-            "fuchsia"
-        ], 
-        zoom = 10
+        color="Xlongitude",
+        color_continuous_scale=px.colors.cyclical.IceFire,
+        size="nbre_pdc",
+        zoom = 7
     )
+    
     fig.update_layout(mapbox_style = "open-street-map")
 
     fig.update_layout(margin = {
@@ -64,6 +72,16 @@ if __name__ == "__main__":
         "b": 0
     })
 
-    fig.show()
     """
+    for i in range(len(STATIONS)):
+        folium.CircleMarker(
+            location = (LATS[i], LONGS[i]),
+            radius = TEMPS[i]*2,
+            color = 'crimson',
+            fill = True,
+            fill_color = 'crimson'
+        ).add_to(fig)
+    """
+
+    fig.show()
     
