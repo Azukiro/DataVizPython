@@ -29,20 +29,33 @@ def createDict(data, keys, values):
     }
 
 
-def countOperator(data):
-    return Counter(df["n_operateur"])
+def countOperator(dataFrame):
+    return Counter(dataFrame["n_operateur"])
 
-def pandaSeriesForOperator():
-    df2 = pd.Series(countOperator(df)).to_frame('new_col').reset_index()
+def pandaSeriesForOperator(dataFrame):
+    df2 = pd.Series(countOperator(dataFrame)).to_frame('new_col').reset_index()
     df2.columns = ['Opérateur', 'Nombre de bornes']
     return df2
 
-if __name__ == '__main__':
-    app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+def createPieChart(dataFrame):
+    #Get dataframe for the counter of operator
+    df2 = pandaSeriesForOperator(dataFrame)
+    #Create the pie
+    fig2 = px.pie(df2, values='Nombre de bornes', names='Opérateur')
+   
+    fig2.update_layout(
+    title="Pourcentae de présence des opérateurs",
+    legend_title="Nom des opérateur",
+    font=dict(
+        family="Courier New, monospace",
+        size=11,
+        color="RebeccaPurple"
+        )
+    )
 
-    # Open the main dataframe from our ressource file
-    df = readData()
+    return fig2
 
+def createHistogram(dataFrame):
     #Create histogram about the number of prises
     fig = px.histogram(df, x="nbre_pdc", log_y=True )
     fig.update_traces(
@@ -59,21 +72,19 @@ if __name__ == '__main__':
         )
     )
 
-    #Get dataframe for the counter of operator
-    df2 = pandaSeriesForOperator()
-    #Create the pie
-    fig2 = px.pie(df2, values='Nombre de bornes', names='Opérateur')
-   
-    fig2.update_layout(
-    title="Pourcentae de présence des opérateurs",
-    legend_title="Nom des opérateur",
-    font=dict(
-        family="Courier New, monospace",
-        size=11,
-        color="RebeccaPurple"
-        )
-    )
-    
+    return fig
+
+def createMap(dataFrame):
+    return None
+
+if __name__ == '__main__':
+    app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+    # Open the main dataframe from our ressource file
+    df = readData()
+    fig = createHistogram(df)
+    fig2 = createPieChart(df)
+
     #Contruct Html Page
     app.layout = html.Div(
         children=[
