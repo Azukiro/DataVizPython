@@ -9,17 +9,15 @@ class PieChart:
             Construit l'objet PieChart:
             - Calcule l'implantation des différents opérateurs
         """
-        self.df = pd.Series(Counter(df["n_operateur"])).to_frame('new_col').reset_index()
-        self.df.columns = ['Opérateur', 'Nombre de bornes']
+        self.__df = pd.Series(Counter(df["n_operateur"])).to_frame('new_col').reset_index()
+        self.__df.columns = ['Opérateur', 'Nombre de bornes']
 
     def get(self):
         """
             Retourne le pie chart, prêt à être affiché
         """
-        
         draw = px.pie(self.df, values='Nombre de bornes', names='Opérateur')
         draw.update_traces(textposition='inside')
-
         draw.update_layout(
             title="Pourcentage de présence des opérateurs",
             legend_title="Nom des opérateurs",
