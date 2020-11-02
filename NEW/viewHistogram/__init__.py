@@ -39,7 +39,8 @@ class Histogram:
 
         return draw
 
-    def getDependencies(self):
+    @staticmethod
+    def getDependencies():
         """
             Retourne les dépendances au df, c'est à dire les
             noms de colonnes utilisées du CSV chargé

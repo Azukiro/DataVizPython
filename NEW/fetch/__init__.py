@@ -8,27 +8,6 @@ CSV_DATA_URL = "https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6
 
 CSV_DATA_PATH = "fetch/assets/data.csv"
 
-CSV_DATA_HEADERS = [
-    "n_amenageur",
-    "n_operateur",
-    "n_enseigne",
-    "id_station",
-    "n_station",
-    "ad_station",
-    "code_insee",
-    "Xlongitude",
-    "Ylatitude",
-    "nbre_pdc",
-    "id_pdc",
-    "puiss_max",
-    "type_prise",
-    "acces_recharge",
-    "accessibilité",
-    "observations",
-    "date_maj",
-    "source"
-]
-
 COORDS_DATA_URL = "https://api-adresse.data.gouv.fr/search/"
 
 # FUNCTIONS #
@@ -45,17 +24,17 @@ def fetchFile():
         CSV_DATA_PATH
     )
 
-def readData():
+def readData(cols):
     """
-        Charger le fichier csv récupéré 
-        dynamiquement via fetchFile()
+        Charger les colonnes du  fichier csv 
+        récupéré dynamiquement via fetchFile()
     """
     return pd.read_csv(
         CSV_DATA_PATH, 
         sep=';', 
         low_memory=False, 
         encoding="UTF-8", 
-        usecols=CSV_DATA_HEADERS
+        usecols=cols
     )
 
 ### LOAD COORDINATES ###
