@@ -1,13 +1,20 @@
 import pandas as pd
-import requests, json
 import plotly.express as px
 import urllib.parse
 import math
 import re
+import fetch as f
 
 class Map:
 
     def __init__(self, df):
+        """
+            Construit l'objet PieChart:
+            - Analyse la colonne de puissance maximale
+            - Analyse la colonne de puissance maximale
+            - Analyse la colonne de puissance maximale
+        """
+
         self.df = df
 
         self.__parsePuissMax(
@@ -47,17 +54,13 @@ class Map:
 
         for i in range(len(df)):
             if (math.isnan(df[longitudeName][i]) or math.isnan(df[latitudeName][i])):
-                l = json.loads(
-                        requests.get(
-                            "https://api-adresse.data.gouv.fr/search/?q=" + 
-                            urllib.parse.quote(df[adStation][i])
-                        ).content.decode('unicode_escape')
-                    )["features"]
+                
+                coords = f.getCoordsFromName(df[adStation][i])
                     
-                if (len(l) == 0):
+                if (coords == None):
                     df.drop([i])
                 else:
-                    df[longitudeName][i], df[latitudeName][i] = l[0]["geometry"]["coordinates"]
+                    df[longitudeName][i], df[latitudeName][i] = coords
 
     def __parsePdcNb(self, df, pdcNbrName):
 
@@ -68,6 +71,9 @@ class Map:
         df['size'] = [nb+1 for nb in df[pdcNbrName]]
 
     def get(self):
+        """
+            Retourne la carte, prêt à être affichée
+        """
         
         draw = px.scatter_mapbox(
             self.df, 
@@ -97,6 +103,10 @@ class Map:
         return draw
 
     def getDependencies(self):
+        """
+            Retourne les dépendances au df, c'est à dire les
+            noms de colonnes utilisées du CSV chargé
+        """
 
         return [
             "Ylatitude",
