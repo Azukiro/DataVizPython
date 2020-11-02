@@ -7,6 +7,9 @@ class Histogram:
         self.df = df
 
     def get(self):
+        """
+            Retourne l'histogramme', prêt à être affiché
+        """
         
         draw = px.histogram(self.df, x="nbre_pdc", log_y=True)
 
@@ -34,6 +37,10 @@ class Histogram:
         return draw
 
     def getDependencies(self):
+        """
+            Retourne les dépendances au df, c'est à dire les
+            noms de colonnes utilisées du CSV chargé
+        """
 
         return [
             "nbre_pdc"

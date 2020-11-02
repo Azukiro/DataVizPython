@@ -8,6 +8,12 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 if __name__ == "__main__":
+    """
+        Programme principal :
+        - Télécharge le fichier CSV et charge ses données (FETCH)
+        - Crée les éléments graphiques (HISTOGRAM, PIE CHART, MAP)
+        - Lance le serveur web (HTML)
+    """
     
     # FETCH #
     f.fetchFile()

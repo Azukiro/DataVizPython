@@ -1,5 +1,6 @@
 import pandas as pd
 import urllib.request
+import requests, json
 
 # CONSTS #
 
@@ -28,8 +29,11 @@ CSV_DATA_HEADERS = [
     "source"
 ]
 
+COORDS_DATA_URL = "https://api-adresse.data.gouv.fr/search/"
+
 # FUNCTIONS #
 
+### LOAD DATA CSV ###
 
 def fetchFile():
     """
@@ -53,3 +57,22 @@ def readData():
         encoding="UTF-8", 
         usecols=CSV_DATA_HEADERS
     )
+
+### LOAD COORDINATES ###
+
+def getCoordsFromName(name): # df[adStation][i]
+    """
+        Charger le fichier csv récupéré 
+        dynamiquement via fetchFile()
+    """
+
+    data = json.loads(
+        requests.get(
+            COORDS_DATA_URL + "?q=" + urllib.parse.quote(name)
+        ).content.decode('unicode_escape')
+    )["features"]
+
+    if (len(data) == 0):
+        return None
+    
+    return data[0]["geometry"]["coordinates"]
