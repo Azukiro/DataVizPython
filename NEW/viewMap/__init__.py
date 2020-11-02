@@ -53,12 +53,12 @@ class Map:
 
         df[puissMaxName] = res
     
-    def __parseCoordinates(self, df, adStation, longitudeName, latitudeName):
+    def __parseCoordinates(self, df, adStationName, longitudeName, latitudeName):
         """
             Récupère au mieux la lattitude et la longitude des bornes
             - Directement via le CSV, si les champs sont bien formatés,
             - Sinon, récupère le tuple (lattitude, longitude) via
-                une API à partir du nom du lieu 
+                une API à partir du nom du lieu (adStationName)
         """
 
         df[longitudeName] = pd.to_numeric(df[longitudeName], errors="coerce")
@@ -67,7 +67,7 @@ class Map:
         for i in range(len(df)):
             if (math.isnan(df[longitudeName][i]) or math.isnan(df[latitudeName][i])):
                 
-                coords = f.getCoordsFromName(df[adStation][i])
+                coords = f.getCoordsFromName(df[adStationName][i])
                     
                 if (coords == None):
                     df.drop([i])

@@ -65,12 +65,17 @@ def getCoordsFromName(name): # df[adStation][i]
         Charger le fichier csv récupéré 
         dynamiquement via fetchFile()
     """
+    url = COORDS_DATA_URL + "?q=" + urllib.parse.quote(name)
 
-    data = json.loads(
-        requests.get(
-            COORDS_DATA_URL + "?q=" + urllib.parse.quote(name)
-        ).content.decode('unicode_escape')
-    )["features"]
+    try:
+    
+        data = json.loads(
+            requests.get(url).content.decode('unicode_escape')
+        )["features"]
+    
+    except Exception:
+        print(url + " can't be reached!")
+        return None
 
     if (len(data) == 0):
         return None
