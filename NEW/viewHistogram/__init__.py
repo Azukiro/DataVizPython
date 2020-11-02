@@ -4,14 +4,17 @@ import plotly.express as px
 class Histogram:
 
     def __init__(self, df):
-        self.df = df
+        """
+            Construit l'objet Histogram
+        """
+        self.__df = df
 
     def get(self):
         """
             Retourne l'histogramme', prêt à être affiché
         """
         
-        draw = px.histogram(self.df, x="nbre_pdc", log_y=True)
+        draw = px.histogram(self.__df, x="nbre_pdc", log_y=True)
 
         draw.update_traces(
             marker=dict(

@@ -10,31 +10,37 @@ class Map:
     def __init__(self, df):
         """
             Construit l'objet PieChart:
-            - Analyse la colonne de puissance maximale
-            - Analyse la colonne de puissance maximale
-            - Analyse la colonne de puissance maximale
+            - Récupère la puissance maximale sous forme d'entiers
+            - Récupère au mieux la lattitude et la longitude des bornes
+            - Traite le nombre de prises afin de faire figurer les bornes 
+                qui n'ont pas de prises sur la carte
         """
 
-        self.df = df
+        self.__df = df
 
         self.__parsePuissMax(
-            self.df,
+            self.__df,
             'puiss_max'
         )
         
         self.__parseCoordinates(
-            self.df,
+            self.__df,
             "ad_station",
             'Xlongitude',
             'Ylatitude'
         )
 
         self.__parsePdcNb(
-            self.df, 
+            self.__df, 
             'nbre_pdc'
         )
 
     def __parsePuissMax(self, df, puissMaxName):
+        """
+            Récupère la puissance maximale sous forme d'entiers
+            - Valeur entière si possible
+            - Sinon, 0
+        """
         res = []
 
         for el in df[puissMaxName]: 
@@ -48,6 +54,12 @@ class Map:
         df[puissMaxName] = res
     
     def __parseCoordinates(self, df, adStation, longitudeName, latitudeName):
+        """
+            Récupère au mieux la lattitude et la longitude des bornes
+            - Directement via le CSV, si les champs sont bien formatés,
+            - Sinon, récupère le tuple (lattitude, longitude) via
+                une API à partir du nom du lieu 
+        """
 
         df[longitudeName] = pd.to_numeric(df[longitudeName], errors="coerce")
         df[latitudeName] = pd.to_numeric(df[latitudeName], errors="coerce")
@@ -63,6 +75,14 @@ class Map:
                     df[longitudeName][i], df[latitudeName][i] = coords
 
     def __parsePdcNb(self, df, pdcNbrName):
+        """
+            Traite le nombre de prises afin de faire figurer les bornes 
+            qui n'ont pas de prises sur la carte :
+            - On crée une colonne 'size' qui contient pdcNbrName + 1,
+                qui sera utilisée pour former la carte, la colonne 
+                pdcNbrName étant donc uniquement utilisée en temps
+                que référentiel d'affichage textuel
+        """
 
         for i in range(len(df)):
             if (math.isnan(df[pdcNbrName][i])):
@@ -76,7 +96,7 @@ class Map:
         """
         
         draw = px.scatter_mapbox(
-            self.df, 
+            self.__df, 
             lat = "Ylatitude", 
             lon = "Xlongitude", 
             hover_name="ad_station",
