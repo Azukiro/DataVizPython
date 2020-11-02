@@ -18,13 +18,14 @@ class PieChart:
         """
         
         draw = px.pie(self.df, values='Nombre de bornes', names='Opérateur')
-    
+        draw.update_traces(textposition='inside')
+
         draw.update_layout(
             title="Pourcentage de présence des opérateurs",
             legend_title="Nom des opérateurs",
             font = dict(
                 family="Courier New, monospace",
-                size=11,
+                size=15,
                 color="RebeccaPurple"
             )
         )
