@@ -49,9 +49,9 @@ def createPieChart(dataFrame):
     title="Pourcentae de présence des opérateurs",
     legend_title="Nom des opérateur",
     font=dict(
-        family="Courier New, monospace",
-        size=11,
-        color="RebeccaPurple"
+            family="Courier New, monospace",
+            size=11,
+            color="RebeccaPurple"
         )
     )
 
