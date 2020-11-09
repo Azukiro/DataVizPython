@@ -11,15 +11,15 @@ De plus, les bornes possèdent elles assez de prises pour pouvoir réagir à une
 
 ## Rapport d'analyse
 
-<img src="https://github.com/Fabinours/PYB/blob/master/images/map.png" width="400" height="300">  
+<img src="https://github.com/Fabinours/PYB/blob/master/assets/readme/map.png" width="400" height="300">  
 
 Bla bla **bla** bla
 
-<img src="https://github.com/Fabinours/PYB/blob/master/images/histo.png" width="400" height="300">
+<img src="https://github.com/Fabinours/PYB/blob/master/assets/readme/histo.png" width="400" height="300">
 
 Bla bla **bla** bla
 
-<img src="https://github.com/Fabinours/PYB/blob/master/images/pie.png" width="400" height="300">
+<img src="https://github.com/Fabinours/PYB/blob/master/assets/readme/pie.png" width="400" height="300">
 
 Bla bla **bla** bla
 
@@ -60,12 +60,12 @@ Le programme suit les étapes suivantes :
 
 ### Crédits
 
-Développeurs : 
-- Ewen Bouquet (@iFairPlay22) ;
-- Loic Fournier (@Azukiro) ;
-
 Source des données utilisées : 
 - Bornes électrique : https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6b8c24bdabb3 ;
 - Géolocalisation : https://api-adresse.data.gouv.fr/search/ ;
 
-Projet réalisé dans le cadre de l'unité Python de l'école ESIEE Paris, en 1ère année de cycle ingénieur E3FI.
+Développeurs : 
+- Ewen Bouquet (@iFairPlay22) ;
+- Loic Fournier (@Azukiro) ;
+
+Le projet a été réalisé dans le cadre de l'unité Python, en 1ère année de cycle ingénieur E3FI à l'ESIEE Paris.
