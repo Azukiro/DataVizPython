@@ -16,7 +16,7 @@ class PieChart:
         """
             Retourne le pie chart, prêt à être affiché
         """
-        draw = px.pie(self.df, values='Nombre de bornes', names='Opérateur')
+        draw = px.pie(self.__df, values='Nombre de bornes', names='Opérateur')
         draw.update_traces(textposition='inside')
         draw.update_layout(
             title="Pourcentage de présence des opérateurs",

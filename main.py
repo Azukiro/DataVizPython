@@ -86,7 +86,7 @@ if __name__ == '__main__':
     df = readData()
     hist = createHistogram(df)
     pie = createPieChart(df)
-    map = createMap(df)
+    mapy = createMap(df)
     urllib.request.urlretrieve('https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6b8c24bdabb3', "assets/data.csv")
 
     #Contruct Html Page

@@ -33,11 +33,11 @@ if __name__ == "__main__":
 
     app.layout = html.Div(
         children=[
-            html.H1(children='Statistiques bornes électriques'), 
+            html.H1(children='Statistiques bornes électriques',), 
             html.Div(children='''Graphiques'''),
             dcc.Graph(id='histogram', figure=viewHistogram),
             dcc.Graph(id='pie-chart', figure=viewPieChart),
-            dcc.Graph(id='map', figure=viewMap)
+           
         ])
      
     #Run server
