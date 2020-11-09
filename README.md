@@ -1,34 +1,41 @@
-# ParkYourBike
+# Rechargez votre voiture électrique
 
-De nos jours, nos **modes de déplacement** doivent **évoluer** à cause de la **surpopulation** et la **surconsommation** des véhicules à moteur.<br>
-Néanmoins, pour **changer le mode de vie** de nombreuses personnes, il est nécessaire de leur montrer les **alternatives éventuelles** à celui-ci.<br><br>
-C'est pourquoi notre outil est composé d'un **histogramme** et d'**une carte**, illustrants tout deux la **densité des emplacements de stationnement pour vélo en Île-de-France, en fonction de leur capacité d'accueil**.
+## Contexte
+
+La voiture électrique est plus écologique
+
+Est-il facile de recharger sa voiture électrique en France ?
+Quels sont les principaux opérateurs en France ?
+Peut on trouver des bornes de recharges électriques sur l'ensemble du territoire français ?
+De plus, les bornes possèdent elles assez de prises pour pouvoir réagir à une forte demande ?
 
 ## Rapport d'analyse
-<img src="https://github.com/Fabinours/PYB/blob/master/PYB/Images/histo.png" width="400" height="200">  
-<img src="https://github.com/Fabinours/PYB/blob/master/PYB/Images/carte1.png" width="300" height="200">
 
-**La première figure** est **l'histogramme** illustrant **le nombre d'emplacements** de stationnements en fonction de **leur capacité d'accueil**. Pour des raisons de présentation et de lisibilité, nous avons ici limité notre histogramme à **150 de capacité**. Néanmoins, il est quand même important de souligner que **le plus grand emplacement** se situe à Rueil-Malmaison et peut accueillir jusqu'à **448 vélos**.<br>
+<img src="https://github.com/Fabinours/PYB/blob/master/images/map.png" width="400" height="300">  
 
-Hormis certaines valeurs isolées comme celle-ci, nous pouvons remarquer sur l'histogramme que **la majorité des emplacements** peuvent à peine accueillir **50 vélos**. En effet, **la valeur moyenne** de capacité d'accueil est **seulement de 10 vélos** par emplacement. De plus, seulement **8,7% des emplacements sont couverts** et seulement **0,3% des emplacements sont surveillés**.
+Bla bla **bla** bla
 
-Tous ces résultats montrent que même si **de plus en plus d'emplacements de stationnements sont crées, très peu sont réellement utilisables du au nombre de places disponibles, mais surtout du au manque de protection.**
+<img src="https://github.com/Fabinours/PYB/blob/master/images/histo.png" width="400" height="300">
+
+Bla bla **bla** bla
+
+<img src="https://github.com/Fabinours/PYB/blob/master/images/pie.png" width="400" height="300">
+
+Bla bla **bla** bla
 
 ## User Guide
 
-Pour exécuter l'application, Python doit être installé ainsi que les packages suivants :
-- plotly
-- dash
-- pandas
-- requests
+Pour exécuter l'application, il faut avoir installé le langage python. Si cela n'est pas fait, veuillez consultez le lien suivant : https://www.python.org/downloads/.
 
-Commande d'installation : ```pip install plotly & pip install dash & pip install pandas & pip install requests```
+De plus, il faut installer les librairies suivantes :
+- dash : ``` pip install dash ```
+- pandas : ``` pip install pandas ```
+- plotly : ``` pip install plotly ```
+- requests : ``` pip install requests ```
 
-Commande d'exécution : ```python main.py```
+Une fois installées, vous pouvez éxécuter le programme en lançant la commande :```python main.py```
 
-Pour ouvrir l'application, ouvrer un navigateur web et rentrer l'URL ci-dessous.
-
-URL : http://127.0.0.1:8050/
+Pour ouvrir l'application, ouvrer un navigateur web et saisissez l'URL suivante : http://127.0.0.1:8050/
 
 ## Developper Guide
 
@@ -42,8 +49,12 @@ Dans la partie ```main```, nous utilisons les packages ```pandas``` et ```plotly
 
 ### Crédits
 
-Développeurs : Fabien Courtois (@Fabinours) & Loic Fournier (@Hereal)<br>
+Développeurs : 
+- Ewen Bouquet (@iFairPlay22);
+- Loic Fournier (@Azukiro);
 
-Source des données utilisées : https://www.data.gouv.fr/fr/datasets/stationnement-velo-en-ile-de-france/<br>
+Source des données utilisées : 
+- API des bornes électrique : https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6b8c24bdabb3<br>
+- API de géolocalisation : https://api-adresse.data.gouv.fr/search/
 
 Projet réalisé dans le cadre de l'unité Python de l'école ESIEE Paris, en 1ère année de cycle ingénieur E3FI.
