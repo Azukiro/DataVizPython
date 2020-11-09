@@ -16,13 +16,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .leftPart{
+   
+    
+    min-width: 45%;
+}
+
+#map{
+    height: 90%;
+    max-height: 100%;
+}
+
+
+.rigthPart{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    
     min-width: 40%;
-}
-
-.rigthPart{
-    min-width: 45%;
 }

@@ -26,7 +26,12 @@ class PieChart:
                 size=15,
              color='#ffffff'
             ),
-            width=500,
+  
+                legend=dict(
+    xanchor="right",
+    yanchor="top",
+),
+
            paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
         )

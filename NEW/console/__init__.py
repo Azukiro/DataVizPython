@@ -25,8 +25,8 @@ class Console:
         
         percentage = int(actualLine * 100 / totalLines)
 
-        if (percentage % 5 == 0):
-            print("Done : ~" + str(percentage) + "%", end="\r")
+       
+        print("Done : ~" + str(percentage) + "%", end="\r")
 
     def endBlock(self):
 
