@@ -7,7 +7,7 @@ import fetch as f
 
 class Map:
 
-    def __init__(self, df):
+    def __init__(self, console, df):
         """
             Construit l'objet PieChart:
             - Récupère la puissance maximale sous forme d'entiers
@@ -15,7 +15,7 @@ class Map:
             - Traite le nombre de prises afin de faire figurer les bornes 
                 qui n'ont pas de prises sur la carte
         """
-
+        self.__console = console
         self.__df = df
 
         self.__parsePuissMax(
@@ -42,9 +42,13 @@ class Map:
             - Sinon, 0
         """
         res = []
+        length = len(df[puissMaxName])
 
-        for el in df[puissMaxName]: 
-            intList = re.findall("[+-]?\d+", el)
+        for i in range(length): 
+
+            self.__console.printIteration(i, length)
+
+            intList = re.findall("[+-]?\d+", df[puissMaxName][i])
 
             if (len(intList) == 0):
                 res.append(0)
@@ -63,8 +67,12 @@ class Map:
 
         df[longitudeName] = pd.to_numeric(df[longitudeName], errors="coerce")
         df[latitudeName] = pd.to_numeric(df[latitudeName], errors="coerce")
+        length = len(df)
 
-        for i in range(len(df)):
+        for i in range(length):
+            
+            self.__console.printIteration(i, length)
+
             if (math.isnan(df[longitudeName][i]) or math.isnan(df[latitudeName][i])):
                 
                 coords = f.getCoordsFromName(df[adStationName][i])
@@ -83,8 +91,12 @@ class Map:
                 pdcNbrName étant donc uniquement utilisée en temps
                 que référentiel d'affichage textuel
         """
+        length = len(df)
 
-        for i in range(len(df)):
+        for i in range(length):
+
+            self.__console.printIteration(i, length)
+
             if (math.isnan(df[pdcNbrName][i])):
                 df[pdcNbrName][i] = 0
 
