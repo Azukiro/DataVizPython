@@ -2,26 +2,27 @@
 
 ## Contexte
 
-La voiture électrique est plus écologique
+Ces dernières années, on entend beaucoup parler de la voiture électrique. Cette dernière est effet plus écologique que la voiture à essence, mais aussi plus rentable sur la durée, et moins bruyante. Cependant, la voiture électrique à une autonomie réduite : entre 200 et 300km selon les modèles. Pour pouvoir l'utiliser, il faut donc facilement pouvoir la recharger. Il est donc primordial d'avoir accès à des bonnes de recharge électrique.
 
-Est-il facile de recharger sa voiture électrique en France ?
-Quels sont les principaux opérateurs en France ?
-Peut on trouver des bornes de recharges électriques sur l'ensemble du territoire français ?
-De plus, les bornes possèdent elles assez de prises pour pouvoir réagir à une forte demande ?
+Notre analyse, centrée sur le territoire Français, permettra de répondre à ces questions cruciales :
+- Est-il facile de recharger sa voiture électrique en France ?
+- Peut on trouver des bornes de recharges électriques sur l'ensemble du territoire français ?
+- De plus, les bornes possèdent elles assez de prises pour pouvoir réagir à une forte demande ?
+- Quels sont les principaux opérateurs ?
 
 ## Rapport d'analyse
 
 <img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/map.png" width="325" height="300">  
 
-Bla bla **bla** bla
+En décembre 2020, la France recense près de 14760 bornes électriques sur son sol d'après son API sur data.gouv.fr. La carte réalisée nous montre que celles-ci sont **réparties sur l'ensemble du territoire Français**. La puissance maximale délivée est en général comprise entre **18 et 22 kwa**, ce qui parfaitement adapté. Il est donc possible de voyager partout en France en voiture électrique.
 
 <img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/histo.png" width="500" height="300">
 
-Bla bla **bla** bla
+D'après ce graphique, environ 68% des bornes électriques donnent un accès à 2 prises. Il est donc possible de recharger deux voitures électriques en même temps.  De plus, environ 90% des bornes fournissent plus de 2 prises (majoritairement entre 2 et 6). Sachant que le temps de recharge est approximativement de 35 minutes sur une borne rapide, il c'est donc relativement rapide.
 
 <img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/pie.png" width="500" height="300">
 
-Bla bla **bla** bla
+Maintenant, nous allons nous focaliser sur le marché des fournisseurs électriques. On constate via ce graphique que les principaux fournisseurs des bornes électriques françaises sont Bouygues Energie & Services (30%), Izivia (13%) et la Mairie de Paris (8%). On voit aussi que le secteur est très ouvert à la concurrence. En effet, un tiers des bornes électriques sont approvisionnées par 96% des fournisseurs. Ceux-ci ne sont foclisés que sur quelques dixaines voir quelques centaines de bornes. 
 
 ## User Guide
 
