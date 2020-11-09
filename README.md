@@ -11,15 +11,15 @@ De plus, les bornes possèdent elles assez de prises pour pouvoir réagir à une
 
 ## Rapport d'analyse
 
-<img src="https://github.com/Fabinours/PYB/blob/master/assets/readme/map.png" width="400" height="300">  
+<img src="https://github.com/Azukiro/DataVizPython/edit/master/assets/readme/map.png" width="400" height="300">  
 
 Bla bla **bla** bla
 
-<img src="https://github.com/Fabinours/PYB/blob/master/assets/readme/histo.png" width="400" height="300">
+<img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/histo.png" width="400" height="300">
 
 Bla bla **bla** bla
 
-<img src="https://github.com/Fabinours/PYB/blob/master/assets/readme/pie.png" width="400" height="300">
+<img src="https://github.com/Azukiro/DataVizPython/edit/master/assets/readme/pie.png" width="400" height="300">
 
 Bla bla **bla** bla
 
@@ -62,7 +62,7 @@ Le programme suit les étapes suivantes :
 
 Source des données utilisées : 
 - Bornes électrique : https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6b8c24bdabb3 ;
-- Géolocalisation : https://api-adresse.data.gouv.fr/search/ ;
+- Géolocalisation : https://api-adresse.data.gouv.fr/search ;
 
 Développeurs : 
 - Ewen Bouquet (@iFairPlay22) ;
