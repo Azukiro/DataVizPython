@@ -2,6 +2,7 @@ import pandas as pd
 import plotly.express as px
 from collections import Counter
 
+
 class PieChart:
 
     def __init__(self, console, df):
@@ -9,7 +10,8 @@ class PieChart:
             Construit l'objet PieChart:
             - Calcule l'implantation des différents opérateurs
         """
-        self.__df = pd.Series(Counter(df["n_operateur"])).to_frame('new_col').reset_index()
+        self.__df = pd.Series(Counter(df["n_operateur"])).to_frame(
+            'new_col').reset_index()
         self.__df.columns = ['Opérateur', 'Nombre de bornes']
 
     def get(self):
@@ -21,19 +23,19 @@ class PieChart:
         draw.update_layout(
             title="Pourcentage de présence des opérateurs",
             legend_title="Nom des opérateurs",
-            font = dict(
+            font=dict(
                 family="Courier New, monospace",
                 size=15,
-             color='#ffffff'
+                color='#ffffff'
             ),
-  
-                legend=dict(
-    xanchor="right",
-    yanchor="top",
-),
 
-           paper_bgcolor='rgba(0, 0, 0, 0)',
-                  plot_bgcolor='rgba(0, 0, 0, 0)',
+            legend=dict(
+                xanchor="right",
+                yanchor="top",
+            ),
+
+            paper_bgcolor='rgba(0, 0, 0, 0)',
+            plot_bgcolor='rgba(0, 0, 0, 0)',
         )
 
         return draw

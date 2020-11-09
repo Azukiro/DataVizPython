@@ -19,9 +19,9 @@ if __name__ == "__main__":
     console = c.Console.instance()
 
     # FETCH #
-    
+
     console.startBlock("FETCH")
-    
+
     f.fetchFile()
     df = f.readData(
         h.Histogram.getDependencies() +
@@ -30,9 +30,9 @@ if __name__ == "__main__":
     )
 
     console.endBlock()
-    
+
     # HISTOGRAM #
-    
+
     console.startBlock("HISTOGRAM")
 
     viewHistogram = h.Histogram(console, df).get()
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     console.endBlock()
 
     # PIE CHART #
-    
+
     console.startBlock("PIE CHART")
 
     viewPieChart = p.PieChart(console, df).get()
@@ -48,10 +48,10 @@ if __name__ == "__main__":
     console.endBlock()
 
     # MAP #
-    
+
     console.startBlock("MAP")
 
-    viewMap = m.Map(console, df).get()  
+    viewMap = m.Map(console, df).get()
 
     console.endBlock()
 
@@ -60,24 +60,36 @@ if __name__ == "__main__":
     app = dash.Dash(__name__)
     console.startBlock("HTML")
 
-
     app.layout = html.Div(
         children=[
-            html.H1(children='Statistiques bornes électriques',), 
+            html.H1(children='Statistiques bornes électriques',),
 
-            html.Div(className="maindiv", children=[
-            html.Div(    className="leftPart",children=[
-            
-                html.H2(children='''Graphiques'''),
- dcc.Graph(id='histogram', className="graph", figure=viewHistogram, ),
-    dcc.Graph(id='pie-chart',  className="graph", figure=viewPieChart),
-            ]),
-                 dcc.Graph(   className="rigthPart", id='map', figure=viewMap)  
-            
-        ]),])
-     
+            html.Div(
+                className="maindiv",
+                children=[
+                    html.Div(className="leftPart", children=[
 
+                        html.H2(children='''Carte'''),
+                        dcc.Graph(id='map', className="rigthPart",
+                                  figure=viewMap)
+                    ]),
+
+                    html.Div(
+                        className="rigthPart",
+                        children=[
+                            html.H2(children='''Graphiques'''),
+                            dcc.Graph(id='histogram', className="graph",
+                                      figure=viewHistogram, ),
+                            dcc.Graph(id='pie-chart',  className="graph",
+                                      figure=viewPieChart),
+                        ]
+                    ),
+                ]
+            ),
+        ]
+
+    )
 
     console.endBlock()
-    #Run server
+    # Run server
     app.run_server(debug=True)
