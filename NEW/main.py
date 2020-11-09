@@ -2,7 +2,7 @@ import fetch as f
 import viewPieChart as p
 import viewHistogram as h
 import viewMap as m
-
+import console as c
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -14,32 +14,57 @@ if __name__ == "__main__":
         - Crée les éléments graphiques (HISTOGRAM, PIE CHART, MAP)
         - Lance le serveur web (HTML)
     """
-    
+    # CONSOLE #
+
+    console = c.Console.instance()
+
     # FETCH #
+    
+    console.startBlock("FETCH")
+    
     f.fetchFile()
     df = f.readData(
         h.Histogram.getDependencies() +
         p.PieChart.getDependencies() +
         m.Map.getDependencies()
     )
+
+    console.endBlock()
     
     # HISTOGRAM #
-    viewHistogram = h.Histogram(df).get()
+    
+    console.startBlock("HISTOGRAM")
+
+    viewHistogram = h.Histogram(console, df).get()
+
+    console.endBlock()
 
     # PIE CHART #
-    viewPieChart = p.PieChart(df).get()
+    
+    console.startBlock("PIE CHART")
+
+    viewPieChart = p.PieChart(console, df).get()
+
+    console.endBlock()
 
     # MAP #
-    viewMap = m.Map(df).get()  
+    
+    console.startBlock("MAP")
+
+    viewMap = m.Map(console, df).get()  
+
+    console.endBlock()
 
     # HTML #
-    app = dash.Dash(__name__)
 
+    app = dash.Dash(__name__)
+    console.startBlock("HTML")
 
 
     app.layout = html.Div(
         children=[
             html.H1(children='Statistiques bornes électriques',), 
+
             html.Div(className="maindiv", children=[
             html.Div(    className="leftPart",children=[
             
@@ -51,5 +76,8 @@ if __name__ == "__main__":
             
         ]),])
      
+
+
+    console.endBlock()
     #Run server
     app.run_server(debug=True)

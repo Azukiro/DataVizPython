@@ -4,7 +4,7 @@ from collections import Counter
 
 class PieChart:
 
-    def __init__(self, df):
+    def __init__(self, console, df):
         """
             Construit l'objet PieChart:
             - Calcule l'implantation des différents opérateurs

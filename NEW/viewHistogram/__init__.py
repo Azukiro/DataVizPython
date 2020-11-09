@@ -3,7 +3,7 @@ import plotly.express as px
 
 class Histogram:
 
-    def __init__(self, df):
+    def __init__(self, console, df):
         """
             Construit l'objet Histogram
         """

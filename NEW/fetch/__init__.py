@@ -53,7 +53,7 @@ def getCoordsFromName(name): # df[adStation][i]
         )["features"]
     
     except Exception:
-        print(url + " can't be reached!")
+        # print(url + " can't be reached!")
         return None
 
     if (len(data) == 0):
