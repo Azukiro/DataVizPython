@@ -11,15 +11,15 @@ De plus, les bornes possèdent elles assez de prises pour pouvoir réagir à une
 
 ## Rapport d'analyse
 
-<img src="https://github.com/Azukiro/DataVizPython/edit/master/assets/readme/map.png" width="400" height="300">  
+<img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/map.png" width="325" height="300">  
 
 Bla bla **bla** bla
 
-<img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/histo.png" width="400" height="300">
+<img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/histo.png" width="500" height="300">
 
 Bla bla **bla** bla
 
-<img src="https://github.com/Azukiro/DataVizPython/edit/master/assets/readme/pie.png" width="400" height="300">
+<img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/pie.png" width="500" height="300">
 
 Bla bla **bla** bla
 
