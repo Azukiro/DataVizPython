@@ -28,33 +28,44 @@ Bla bla **bla** bla
 Pour exécuter l'application, il faut avoir installé le langage python. Si cela n'est pas fait, veuillez consultez le lien suivant : https://www.python.org/downloads/.
 
 De plus, il faut installer les librairies suivantes :
-- dash : ``` pip install dash ```
-- pandas : ``` pip install pandas ```
-- plotly : ``` pip install plotly ```
-- requests : ``` pip install requests ```
+- dash : ``` pip install dash ``` ;
+- pandas : ``` pip install pandas ``` ;
+- plotly : ``` pip install plotly ``` ;
+- requests : ``` pip install requests ``` ;
 
-Une fois installées, vous pouvez éxécuter le programme en lançant la commande :```python main.py```
+Une fois installées, vous pouvez éxécuter le programme en lançant la commande : ```python main.py```.
 
 Pour ouvrir l'application, ouvrer un navigateur web et saisissez l'URL suivante : http://127.0.0.1:8050/
 
 ## Developper Guide
 
-Le projet est décomposé en 3 parties : 
-- Le téléchargement des données, qui s'effectue lors de l'appel de fonction ```downloadCsv()```.
-- Le traitement des données téléchargées, qui s'effectue lors de l'appel de fonction ```modifyCsv()```.
-- L'affichage des données traitées, qui s'effectue dans la partie ```main```.
+### Organisation en fichiers
 
-Nous utilisons le package ```requests``` pour télécharger les données et modifions par la suite en brut les données. 
-Dans la partie ```main```, nous utilisons les packages ```pandas``` et ```plotly``` pour créer les différents éléments graphiques, et ```dash``` pour gérer leur disposition.
+Le projet est découpé en plusieurs composantes :
+- console : affichage sur la console ;
+- fetch : récupération des données via internet ;
+- view : affichage de la page web ;
+- viewHistogram : gestion de l'histogramme ;
+- viewMap : gestion de la carte ;
+- viewPieChart : gestion du pie chart ;
+
+### Déroulé du programme
+
+Le programme suit les étapes suivantes :
+- Télécharge la dernière version du CSV via une requête web (fetch) ;
+- Manipule les données afin de préparer l'affichage des graphiques et de la carte (viewHistogram, viewMap, viewPieChart) <br/>
+  Ex : On récupère les coordonnées géographiques des bornes électriques mal renseignées ;
+- Génère la structure HTML et ajoute une feuille de CSS (view) ;
+- Lance le serveur web (view) ;
 
 ### Crédits
 
 Développeurs : 
-- Ewen Bouquet (@iFairPlay22);
-- Loic Fournier (@Azukiro);
+- Ewen Bouquet (@iFairPlay22) ;
+- Loic Fournier (@Azukiro) ;
 
 Source des données utilisées : 
-- API des bornes électrique : https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6b8c24bdabb3<br>
-- API de géolocalisation : https://api-adresse.data.gouv.fr/search/
+- Bornes électrique : https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6b8c24bdabb3 ;
+- Géolocalisation : https://api-adresse.data.gouv.fr/search/ ;
 
 Projet réalisé dans le cadre de l'unité Python de l'école ESIEE Paris, en 1ère année de cycle ingénieur E3FI.
