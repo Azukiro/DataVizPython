@@ -5,7 +5,8 @@ Néanmoins, pour **changer le mode de vie** de nombreuses personnes, il est néc
 C'est pourquoi notre outil est composé d'un **histogramme** et d'**une carte**, illustrants tout deux la **densité des emplacements de stationnement pour vélo en Île-de-France, en fonction de leur capacité d'accueil**.
 
 ## Rapport d'analyse
-<img src="https://github.com/Fabinours/PYB/blob/master/PYB/Images/histo.png" width="400" height="200">  <img src="https://github.com/Fabinours/PYB/blob/master/PYB/Images/carte1.png" width="300" height="200">
+<img src="https://github.com/Fabinours/PYB/blob/master/PYB/Images/histo.png" width="400" height="200">  
+<img src="https://github.com/Fabinours/PYB/blob/master/PYB/Images/carte1.png" width="300" height="200">
 
 **La première figure** est **l'histogramme** illustrant **le nombre d'emplacements** de stationnements en fonction de **leur capacité d'accueil**. Pour des raisons de présentation et de lisibilité, nous avons ici limité notre histogramme à **150 de capacité**. Néanmoins, il est quand même important de souligner que **le plus grand emplacement** se situe à Rueil-Malmaison et peut accueillir jusqu'à **448 vélos**.<br>
 
