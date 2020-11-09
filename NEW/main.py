@@ -33,16 +33,23 @@ if __name__ == "__main__":
     viewMap = m.Map(df).get()  
 
     # HTML #
-    app = dash.Dash(__name__, external_stylesheets=['/style/style.css'])
+    app = dash.Dash(__name__)
+
+
 
     app.layout = html.Div(
         children=[
             html.H1(children='Statistiques bornes électriques',), 
-            html.Div(children='''Graphiques'''),
-            dcc.Graph(id='histogram', figure=viewHistogram),
-            dcc.Graph(id='pie-chart', figure=viewPieChart),
-            dcc.Graph(id='map', figure=viewMap)
-        ])
+            html.Div(className="maindiv", children=[
+            html.Div(    className="leftPart",children=[
+            
+                html.H2(children='''Graphiques'''),
+ dcc.Graph(id='histogram', className="graph", figure=viewHistogram, ),
+    dcc.Graph(id='pie-chart',  className="graph", figure=viewPieChart),
+            ]),
+                 dcc.Graph(   className="rigthPart", id='map', figure=viewMap)  
+            
+        ]),])
      
     #Run server
     app.run_server(debug=True)

@@ -19,10 +19,11 @@ class Histogram:
         draw.update_traces(
             marker=dict(
                 line=dict(
-                    color='#000000', 
+                    color='rgb(9, 30, 66)', 
                     width=2
                 )
-            )
+            ),
+            marker_color='rgb(0, 199, 229)',
         )
 
         draw.update_layout(
@@ -33,8 +34,10 @@ class Histogram:
             font=dict(
                 family="Courier New, monospace",
                 size=18,
-                color="RebeccaPurple"
-            )
+                color='#ffffff'
+            ),
+              paper_bgcolor='rgba(0, 0, 0, 0)',
+                  plot_bgcolor='rgba(0, 0, 0, 0)',
         )
 
         return draw

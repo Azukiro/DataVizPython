@@ -24,8 +24,11 @@ class PieChart:
             font = dict(
                 family="Courier New, monospace",
                 size=15,
-                color="RebeccaPurple"
-            )
+             color='#ffffff'
+            ),
+            width=500,
+           paper_bgcolor='rgba(0, 0, 0, 0)',
+                  plot_bgcolor='rgba(0, 0, 0, 0)',
         )
 
         return draw

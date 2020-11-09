@@ -67,12 +67,13 @@ class Map:
         for i in range(len(df)):
             if (math.isnan(df[longitudeName][i]) or math.isnan(df[latitudeName][i])):
                 
-                coords = f.getCoordsFromName(df[adStationName][i])
+                """coords = f.getCoordsFromName(df[adStationName][i])
                     
                 if (coords == None):
                     df.drop([i])
                 else:
                     df[longitudeName][i], df[latitudeName][i] = coords
+                    """
 
     def __parsePdcNb(self, df, pdcNbrName):
         """
@@ -118,7 +119,12 @@ class Map:
             zoom = 7
         )
         
-        draw.update_layout(mapbox_style = "open-street-map")
+        draw.update_layout(mapbox_style = "open-street-map",  paper_bgcolor='rgba(0, 0, 0, 0)',
+                  plot_bgcolor='rgba(0, 0, 0, 0)',font = dict(
+                family="Courier New, monospace",
+                size=15,
+             color='#ffffff'
+            ),)
 
         return draw
 
