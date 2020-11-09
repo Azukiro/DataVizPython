@@ -11,7 +11,7 @@ class Histogram:
 
     def get(self):
         """
-            Retourne l'histogramme', prêt à être affiché
+            Retourne l'histogramme, prêt à être affiché
         """
         
         draw = px.histogram(self.__df, x="nbre_pdc", log_y=True)

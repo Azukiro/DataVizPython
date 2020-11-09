@@ -11,6 +11,10 @@ class View:
         self.__app = self.__create(console, viewMap, viewHistogram, viewPieChart)
 
     def __create(self, console, viewMap, viewHistogram, viewPieChart):
+        
+        """
+            Construit la structure HTML de la page web
+        """
         app = dash.Dash(__name__)
 
         app.layout = html.Div(
@@ -45,4 +49,7 @@ class View:
         return app
 
     def runServer(self):
+        """
+            Lance le serveur en local. Le site sera accessible via le lien : http://127.0.0.1:8050/
+        """
         self.__app.run_server(debug=True)
