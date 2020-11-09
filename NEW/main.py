@@ -17,7 +17,12 @@ if __name__ == "__main__":
     
     # FETCH #
     f.fetchFile()
-    df = f.readData()
+
+    df = f.readData(
+        h.Histogram.getDependencies() +
+        p.PieChart.getDependencies() +
+        m.Map.getDependencies()
+    )
     
     # HISTOGRAM #
     viewHistogram = h.Histogram(df).get()

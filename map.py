@@ -37,6 +37,7 @@ if __name__ == "__main__":
 
     for i in range(len(df)):
         if (math.isnan(df['Xlongitude'][i]) or math.isnan(df['Ylatitude'][i])):
+            print(i)
             l = json.loads(
                     requests.get(
                         "https://api-adresse.data.gouv.fr/search/?q=" + 
