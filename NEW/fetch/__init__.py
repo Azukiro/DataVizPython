@@ -5,7 +5,7 @@ import requests, json
 # CONSTS #
 
 CSV_DATA_URL = "https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6b8c24bdabb3"
-
+                
 CSV_DATA_PATH = "fetch/assets/data.csv"
 
 COORDS_DATA_URL = "https://api-adresse.data.gouv.fr/search/"

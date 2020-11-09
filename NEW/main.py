@@ -17,7 +17,6 @@ if __name__ == "__main__":
     
     # FETCH #
     f.fetchFile()
-
     df = f.readData(
         h.Histogram.getDependencies() +
         p.PieChart.getDependencies() +
@@ -31,10 +30,10 @@ if __name__ == "__main__":
     viewPieChart = p.PieChart(df).get()
 
     # MAP #
-    viewMap = m.Map(df).get()
+    viewMap = m.Map(df).get()  
 
     # HTML #
-    app = dash.Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
+    app = dash.Dash(__name__, external_stylesheets=['/style/style.css'])
 
     app.layout = html.Div(
         children=[
@@ -42,7 +41,7 @@ if __name__ == "__main__":
             html.Div(children='''Graphiques'''),
             dcc.Graph(id='histogram', figure=viewHistogram),
             dcc.Graph(id='pie-chart', figure=viewPieChart),
-           
+            dcc.Graph(id='map', figure=viewMap)
         ])
      
     #Run server
