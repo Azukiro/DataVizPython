@@ -59,11 +59,13 @@ Le programme suit les étapes suivantes :
 - Génère la structure HTML et ajoute une feuille de CSS (view) ;
 - Lance le serveur web (view) ;
 
-### Crédits
+### APIs utilisées
 
-Source des données utilisées : 
+Source de données utilisées : 
 - Bornes électrique : https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6b8c24bdabb3 ;
 - Géolocalisation : https://api-adresse.data.gouv.fr/search ;
+
+## Crédits
 
 Développeurs : 
 - Ewen Bouquet (@iFairPlay22) ;
