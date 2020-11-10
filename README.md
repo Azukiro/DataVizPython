@@ -67,6 +67,6 @@ Source des données utilisées :
 
 Développeurs : 
 - Ewen Bouquet (@iFairPlay22) ;
-- Loic Fournier (@Azukiro) ;
+- Lucas Billard (@Azukiro) ;
 
 Le projet a été réalisé dans le cadre de l'unité Python, en 1ère année de cycle ingénieur E3FI à l'ESIEE Paris.
