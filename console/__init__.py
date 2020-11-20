@@ -36,8 +36,14 @@ class Console:
             Afficher l'avancement en pourcentage du parcours d'une boucle
         """
 
-        percentage = int(actualLine * 100 / totalLines)
-        print("Done : ~" + str(percentage) + "% (line " + str(actualLine) + " / " + str(totalLines) + ")", end="\r")
+        if (totalLines <= 0):
+            raise Exception("Invalid parameters!")
+        
+        displayLine = actualLine + 1
+        percentage = round(displayLine * 100 / totalLines) 
+        endLine = "\r" if displayLine != totalLines else "\n" 
+        
+        print(" Done : ~" + str(percentage) + "% (line " + str(displayLine) + " / " + str(totalLines) + ")", end=endLine)
 
     def endBlock(self):
         """

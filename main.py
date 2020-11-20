@@ -13,6 +13,7 @@ if __name__ == "__main__":
         - Crée les éléments graphiques (HISTOGRAM, PIE CHART, MAP)
         - Lance le serveur web (HTML)
     """
+
     # CONSOLE #
 
     console = c.Console.instance()
