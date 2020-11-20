@@ -133,7 +133,7 @@ class Map:
              paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',font = dict(
                 family="Courier New, monospace",
-                size=15,
+                size=13,
              color='#ffffff'
              
             ),)

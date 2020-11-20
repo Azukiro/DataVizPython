@@ -22,7 +22,7 @@ class PieChart:
         draw.update_traces(textposition='inside')
         draw.update_layout(
             title="Pourcentage de présence des opérateurs",
-            legend_title="Nom des opérateurs",
+            legend_title="Opérateurs",
             font=dict(
                 family="Courier New, monospace",
                 size=15,
