@@ -16,7 +16,6 @@ class View:
             Construit la structure HTML de la page web
         """
         app = dash.Dash(__name__)
-
         app.layout = html.Div(
             children=[
                 html.H1(children='Statistiques bornes électriques',),
