@@ -6,17 +6,10 @@ class View:
 
     def __init__(self, console, viewMap, viewHistogram, viewPieChart):
         """
-            Construit l'objet View
+            Construit l'objet View et notamment la structure HTML de la page web
         """
-        self.__app = self.__create(console, viewMap, viewHistogram, viewPieChart)
-
-    def __create(self, console, viewMap, viewHistogram, viewPieChart):
-        
-        """
-            Construit la structure HTML de la page web
-        """
-        app = dash.Dash(__name__)
-        app.layout = html.Div(
+        self.__app = dash.Dash(__name__)
+        self.__app.layout = html.Div(
             children=[
                 html.H1(children='Statistiques bornes électriques',),
 
@@ -44,8 +37,6 @@ class View:
                 ),
             ]
         )
-
-        return app
 
     def runServer(self):
         """
