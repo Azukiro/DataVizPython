@@ -42,4 +42,4 @@ class View:
         """
             Lance le serveur en local. Le site sera accessible via le lien : http://127.0.0.1:8050/
         """
-        self.__app.run_server(debug=True)
+        self.__app.run_server()

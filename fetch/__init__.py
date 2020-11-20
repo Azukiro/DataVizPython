@@ -8,6 +8,8 @@ CSV_DATA_URL = "https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6
                 
 CSV_DATA_PATH = "fetch/assets/data.csv"
 
+COMPLETE_MISSING_URL = False
+
 COORDS_DATA_URL = "https://api-adresse.data.gouv.fr/search/"
 
 # FUNCTIONS #
@@ -44,6 +46,10 @@ def getCoordsFromName(name): # df[adStation][i]
         Charger le fichier csv récupéré 
         dynamiquement via fetchFile()
     """
+
+    if (not(COMPLETE_MISSING_URL)):
+        return None
+
     url = COORDS_DATA_URL + "?q=" + urllib.parse.quote(name)
 
     try:

@@ -75,13 +75,10 @@ class Map:
 
             if (math.isnan(df[longitudeName][i]) or math.isnan(df[latitudeName][i])):
                 
-                """coords = f.getCoordsFromName(df[adStationName][i])
+                coords = f.getCoordsFromName(df[adStationName][i])
                     
-                if (coords == None):
-                    df.drop([i])
-                else:
+                if (coords != None):
                     df[longitudeName][i], df[latitudeName][i] = coords
-                    """
                     
 
     def __parsePdcNb(self, df, pdcNbrName):
