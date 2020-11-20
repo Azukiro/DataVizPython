@@ -16,7 +16,6 @@ class View:
             Construit la structure HTML de la page web
         """
         app = dash.Dash(__name__)
-
         app.layout = html.Div(
             children=[
                 html.H1(children='Statistiques bornes électriques',),
@@ -53,3 +52,14 @@ class View:
             Lance le serveur en local. Le site sera accessible via le lien : http://127.0.0.1:8050/
         """
         self.__app.run_server(debug=True)
+
+
+
+
+
+
+
+
+
+
+

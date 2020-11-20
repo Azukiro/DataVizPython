@@ -1,0 +1,35 @@
+body {
+  font-family: sans-serif;
+  background-color: #344563;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #00c7e5;
+}
+
+.maindiv {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.leftPart {
+  min-width: 45%;
+}
+
+#map {
+  height: 90%;
+  max-height: 100%;
+}
+
+.rigthPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 40%;
+}
