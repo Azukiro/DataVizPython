@@ -42,13 +42,15 @@ Pour ouvrir l'application, ouvrer un navigateur web et saisissez l'URL suivante 
 
 ### Organisation en fichiers
 
-Le projet est découpé en plusieurs composantes :
+Le projet est découpé en plusieurs composants :
 - console : affichage sur la console ;
 - fetch : récupération des données via internet ;
 - view : affichage de la page web ;
 - viewHistogram : gestion de l'histogramme ;
 - viewMap : gestion de la carte ;
 - viewPieChart : gestion du pie chart ;
+
+Dans chacun d'entre eux, on retrouvera les paramètres d'éxécution qui leurs sont propres. On y stipule par exemple les chemins d'accès des fichiers externes utilisés, les URLs des APIs, etc.
 
 ### Déroulé du programme
 
