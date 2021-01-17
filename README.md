@@ -2,7 +2,11 @@
 
 ## Contexte
 
-Ces dernières années, on entend beaucoup parler de la voiture électrique. Cette dernière est effet plus écologique que la voiture à essence, mais aussi plus rentable sur la durée, et moins bruyante. Cependant, la voiture électrique à une autonomie réduite : entre 200 et 300km selon les modèles. Pour pouvoir l'utiliser, il faut donc facilement pouvoir la recharger. Il est donc primordial d'avoir accès à des bonnes de recharge électrique.
+Ces dernières années, on entend beaucoup parler de la voiture électrique. 
+Cette dernière est en effet plus écologique que la voiture à essence, mais aussi plus rentable sur la durée, et moins bruyante. 
+Cependant, la voiture électrique à une autonomie réduite : entre 200 et 300km selon les modèles. 
+Pour pouvoir l'utiliser, il faut donc facilement pouvoir la recharger. 
+Il est donc primordial d'avoir accès à des bonnes de recharge électrique.
 
 Notre analyse, centrée sur le territoire Français, permettra de répondre à ces questions cruciales :
 - Est-il facile de recharger sa voiture électrique en France ?
@@ -12,17 +16,27 @@ Notre analyse, centrée sur le territoire Français, permettra de répondre à c
 
 ## Rapport d'analyse
 
-<img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/map.png" width="325" height="300">  
+<img src="/assets/readme/map.png" width="325" height="300">  
 
-En décembre 2020, la France recense près de 14760 bornes électriques sur son sol d'après son API sur data.gouv.fr. La carte réalisée nous montre que celles-ci sont **réparties sur l'ensemble du territoire Français**. La puissance maximale délivée est en général comprise entre **18 et 22 kwa**, ce qui parfaitement adapté. Il est donc possible de voyager partout en France en voiture électrique.
+En décembre 2020, la France recense près de 14760 bornes électriques sur son sol d'après son API sur data.gouv.fr. 
+La carte réalisée nous montre que celles-ci sont **réparties sur l'ensemble du territoire Français**.
+La puissance maximale délivée est en général comprise entre **18 et 22 kwa**, ce qui parfaitement adapté. 
+Il est donc possible de voyager partout en France en voiture électrique.
 
-<img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/histo.png" width="500" height="300">
+<img src="/assets/readme/histo.png" width="500" height="300">
 
-D'après ce graphique, environ 68% des bornes électriques donnent un accès à 2 prises. Il est donc possible de recharger deux voitures électriques en même temps.  De plus, environ 90% des bornes fournissent plus de 2 prises (majoritairement entre 2 et 6). Sachant que le temps de recharge est approximativement de 35 minutes sur une borne rapide, il c'est donc relativement rapide.
+D'après ce graphique, environ **68% des bornes électriques** donnent un accès à **2 prises**. 
+Il est donc possible de recharger deux voitures électriques en même temps.  
+De plus, environ **90% des bornes** fournissent **plus de 2 prises** (majoritairement entre 2 et 6). 
+Sachant que le temps de recharge est approximativement de 35 minutes sur une borne rapide, c'est donc relativement rapide.
 
-<img src="https://github.com/Azukiro/DataVizPython/blob/master/assets/readme/pie.png" width="500" height="300">
+<img src="/assets/readme/pie.png" width="500" height="300">
 
-Maintenant, nous allons nous focaliser sur le marché des fournisseurs électriques. On constate via ce graphique que les principaux fournisseurs des bornes électriques françaises sont Bouygues Energie & Services (30%), Izivia (13%) et la Mairie de Paris (8%). On voit aussi que le secteur est très ouvert à la concurrence. En effet, un tiers des bornes électriques sont approvisionnées par 96% des fournisseurs. Ceux-ci ne sont foclisés que sur quelques dixaines voir quelques centaines de bornes. 
+Maintenant, nous allons nous focaliser sur le marché des fournisseurs électriques. 
+On constate via ce graphique que les principaux fournisseurs des bornes électriques françaises sont **Bouygues Energie & Services** (30%), **Izivia** (13%) et **la Mairie de Paris** (8%). 
+On voit aussi que le secteur est très ouvert à la concurrence. 
+En effet, **un tiers des bornes électriques** sont approvisionnées par **96% des fournisseurs**. 
+Ceux-ci ne sont foclisés que sur quelques dixaines voir quelques centaines de bornes. 
 
 ## User Guide
 
@@ -50,7 +64,8 @@ Le projet est découpé en plusieurs composants :
 - viewMap : gestion de la carte ;
 - viewPieChart : gestion du pie chart ;
 
-Dans chacun d'entre eux, on retrouvera les paramètres d'éxécution qui leurs sont propres. On y stipule par exemple les chemins d'accès des fichiers externes utilisés, les URLs des APIs, etc.
+Dans chacun d'entre eux, on retrouvera les paramètres d'éxécution qui leurs sont propres. 
+On y stipule par exemple les chemins d'accès des fichiers externes utilisés, les URLs des APIs, etc.
 
 ### Déroulé du programme
 
@@ -60,6 +75,10 @@ Le programme suit les étapes suivantes :
   Ex : On récupère les coordonnées géographiques des bornes électriques mal renseignées ;
 - Génère la structure HTML et ajoute une feuille de CSS (view) ;
 - Lance le serveur web (view) ;
+
+Le programme s'éxécute en quelques secondes si on désactive la récupération des coordonnées géographiques des données mal ou non renseignées (du CSV récupéré via l'API officielle). 
+Cependant, si on veut prendre en compte l'ensemble des données, le temps d'éxécution varie entre 15 et 20 minutes. Pour cela, on affecte ```True``` à la variable ```COMPLETE_MISSING_URL```
+dans le fichier ```/fetch/__init__.py```.
 
 ### APIs utilisées
 

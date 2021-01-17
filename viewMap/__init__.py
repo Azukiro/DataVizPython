@@ -73,13 +73,27 @@ class Map:
             
             self.__console.printIteration(i, length)
 
-            if (math.isnan(df[longitudeName][i]) or math.isnan(df[latitudeName][i])):
+            if (not(self.__validCoordinates(df[longitudeName][i], df[latitudeName][i]))):
                 
                 coords = f.getCoordsFromName(df[adStationName][i])
                     
                 if (coords != None):
                     df[longitudeName][i], df[latitudeName][i] = coords
-                    
+                else:
+                    df[longitudeName][i], df[latitudeName][i] = (None, None)
+
+    def __validCoordinates(self, longitude, latitude):
+        """
+            Renvoie True si les coordonnées (latitude, longitude) sont valides
+            - Valeurs numériques
+            - Longitude entre -180 et 180
+            - Lattitude entre -90 et 90
+        """
+
+        if (math.isnan(longitude) or math.isnan(latitude)):
+            return False
+
+        return -180 <= float(longitude) <= 180  and -90 <= float(latitude) <= 90           
 
     def __parsePdcNb(self, df, pdcNbrName):
         """

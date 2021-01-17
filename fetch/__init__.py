@@ -8,7 +8,7 @@ CSV_DATA_URL = "https://www.data.gouv.fr/fr/datasets/r/50625621-18bd-43cb-8fde-6
                 
 CSV_DATA_PATH = "fetch/assets/data.csv"
 
-COMPLETE_MISSING_URL = False
+COMPLETE_MISSING_URL = True
 
 COORDS_DATA_URL = "https://api-adresse.data.gouv.fr/search/"
 
