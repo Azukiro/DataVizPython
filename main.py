@@ -28,6 +28,7 @@ if __name__ == "__main__":
         p.PieChart.getDependencies() +
         m.Map.getDependencies()
     )
+    
 
     console.endBlock()
 
